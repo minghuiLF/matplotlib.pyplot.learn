@@ -175,7 +175,7 @@ plt.suptitle('Categorical Plotting')
 plt.show()
  ~~~~~
 
-<img hegiht="300px" src="/img4.png" />
+<img width="500px" src="/img4.png" />
 
 ----------
 - __subplot()__
