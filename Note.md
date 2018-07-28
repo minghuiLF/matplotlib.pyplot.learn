@@ -90,4 +90,32 @@ plot('xlabel', 'ylabel', data=obj)
  
 
 ### detail doc : [matplotlib.plot](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot)
+---------------
+## axis(), xlabel(), ylabel()
+
+axis(["xmin","xmax","ymin","ymax"])
+
+x\ylabel("x\ylabes_name")
+~~~
+axis([0,6,0,20])
+~~~
+
+indicate the axis range and name respectively
+
+---------
+
+## co-with numpy 
+
+~~~
+import numpy as np
+
+# evenly sampled time at 200ms intervals
+t = np.arange(0., 5., 0.2)
+
+# red dashes, blue squares and green triangles
+plt.plot(t, t, 'r--', t, t**2, 'bs', t, t**3, 'g^')
+plt.show()
+~~~
+
+<img width="300px" hegiht="300px" src="/img2.png" />
 
