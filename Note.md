@@ -38,6 +38,8 @@ All indexable objects are supported. This could e.g. be a dict, a pandas.DataFam
 
 obj={'xlabel':[1,2,3,4],'ylabel':[1,2,3,4]}
 
+
+
 plot('xlabel', 'ylabel', data=obj)
 
 ~~~~
@@ -119,3 +121,83 @@ plt.show()
 
 <img width="300px" hegiht="300px" src="/img2.png" />
 
+
+## scatter()
+ - __A scatter plot of y vs x with varying marker size and/or color.__
+ 
+ - matplotlib.pyplot.scatter(x, y, s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, verts=None, edgecolors=None, hold=None, data=None, *\*kwargs)
+ 
+ ------------
+ - __x,y__ : data positions shape(n,)
+ - __s__: marker size scalar, shape(n,)
+ - __c__: color, sequence, or sequence of color, optional, default: ‘b’
+   __possible value__
+   - A single color format string.
+   - A sequence of color specifications of length n.
+   - A sequence of n numbers to be mapped to colors using cmap and norm.
+   - A 2-D array in which the rows are RGB or RGBA.
+     - [Colors](https://matplotlib.org/users/colors.html) (detals for colors) 
+ - __alpha__ : transparent 0 to 1 solid 
+ 
+   ~~~
+   data = {'a': np.arange(50),
+        'c': np.random.randint(0, 50, 50),
+        'd': np.random.randn(50)}
+   data['b'] = data['a'] + 10 * np.random.randn(50)
+   data['d'] = np.abs(data['d']) * 100
+   
+   plt.scatter('a', 'b', c='c', s='d', data=data)
+   plt.xlabel('entry a')
+   plt.ylabel('entry b')
+   plt.show()
+   
+   ~~~
+   
+   <img width="300px" src="/img3.png"/>
+   
+------------
+##  categorical variables
+ * It is also possible to create a plot using categorical variables. Matplotlib allows you to pass categorical variables directly to many plotting functions. For example:
+ 
+ ~~~~~
+  names = ['group_a', 'group_b', 'group_c']
+values = [1, 10, 100]
+
+plt.figure(1, figsize=(9, 3))
+
+plt.subplot(131)
+plt.bar(names, values)
+plt.subplot(132)
+plt.scatter(names, values)
+plt.subplot(133)
+plt.plot(names, values)
+plt.suptitle('Categorical Plotting')
+plt.show()
+ ~~~~~
+
+<img hegiht="300px" src="/img4.png" />
+
+----------
+- __subplot()__
+  - Return a subplot axes at the given grid position.
+
+  - Call signature:
+  ~~~
+  subplot(nrows, ncols, index, **kwargs)
+  ~~~
+    * In the current figure, create and return an Axes, at position index of a (virtual) grid of nrows by ncols axes. Indexes go from 1 to nrows * ncols, incrementing in row-major order.
+    ~~~
+    nrows # ncols # index
+      1   #   3   #   1       # here #      #      #
+      1   #   3   #   2       #      # here #      #
+      1   #   3   #   3       #      #      # here #
+      
+      2   #   2   #   4       #      #      #
+                              #      # here #
+    ~~~
+    * If nrows, ncols and index are all less than 10, they can also be given as a single, concatenated, three-digit number
+    ~~~
+    subplot(2,2,3) and subplot(223)
+    ~~~
+    
+  ------------
