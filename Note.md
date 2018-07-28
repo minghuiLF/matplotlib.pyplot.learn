@@ -68,7 +68,26 @@ plot('xlabel', 'ylabel', data=obj)
   
   ~~~
   
+  <img width="300" height="300" src="/img1.png"/>
   
+  ----------
+  3. multiple sets of arguments
+  ~~~
+  
+  >>> plot(x1, y1, 'g^', x2, y2, 'g-')
+  
+  ~~~
+  --------
+  当绘制多条线时 默认会不同颜色
+  By default, each line is assigned a different style specified by a ‘style cycle’. The fmt and line property parameters are only necessary if you want explicit deviations from these defaults. Alternatively, you can also change the style cycle using the ‘axes.prop_cycle’ rcParam.
+  
+ ----------
+### Format
+ ~~~
+ fmt='[color][marker][line]'
+ ~~~
+ 
+ 
 
-
+### detail doc : [matplotlib.plot](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot)
 
