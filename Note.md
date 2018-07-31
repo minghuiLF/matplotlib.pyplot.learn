@@ -93,7 +93,7 @@ plot('xlabel', 'ylabel', data=obj)
 
 ### detail doc : [matplotlib.plot](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot)
 ---------------
-## axis(), xlabel(), ylabel()
+## axis(), xlabel(), ylabel() , xticks(), yticks() 
 
 axis(["xmin","xmax","ymin","ymax"])
 
@@ -201,3 +201,38 @@ plt.show()
     ~~~
     
   ------------
+  
+ ## bar()
+  - make a bar plot (绘制直方(s))
+  
+  - __x,height,width,bottom,align__
+  
+    - x: bar的位置
+    - height，width
+    - bottom: the y coordinate(s) of the bars bases
+    - align: {‘center’, ‘edge’}, optional, default: ‘center’}
+  
+  ~~~~
+  N = 5
+  menMeans = (20, 35, 30, 35, 27)
+  womenMeans = (25, 32, 34, 20, 25)
+  menStd = (2, 3, 4, 1, 2)
+  womenStd = (3, 5, 2, 3, 3)
+  ind = np.arange(N)    # the x locations for the groups
+  width = 0.35       # the width of the bars: can also be len(x) sequence
+
+  p1 = plt.bar(ind, menMeans, width, yerr=menStd)
+  p2 = plt.bar(ind, womenMeans, width,
+               bottom=menMeans, yerr=womenStd)
+
+  plt.ylabel('Scores')
+  plt.title('Scores by group and gender')
+  plt.xticks(ind, ('G1', 'G2', 'G3', 'G4', 'G5'))
+  plt.yticks(np.arange(0, 81, 10))
+  plt.legend((p1[0], p2[0]), ('Men', 'Women'))
+
+  plt.show()
+  ~~~~
+  
+ <img width="400px" src="/img5.png" />
+
