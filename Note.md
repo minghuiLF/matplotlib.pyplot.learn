@@ -1,6 +1,8 @@
 # mmatplotlib.pyplot
 - import the moodule
 
+<img src="https://matplotlib.org/_images/anatomy.png" />
+
 ~~~
 
 - import matplotlib.pyplot as plt
