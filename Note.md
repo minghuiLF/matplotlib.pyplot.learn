@@ -321,5 +321,7 @@ plt.show()
    <img width="200" src="/img8.png" />
    
    
+  ##plt.hist() 
+   
    
    
