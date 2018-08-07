@@ -235,4 +235,86 @@ plt.show()
   ~~~~
   
  <img width="400px" src="/img5.png" />
+ 
+ ## legend(\*args,*\*kwargs)
+   - 1st way labeled during ploting
+     - plot(x,y,__label="11"__)
+     - legend()
+   - 2ed way labeled by array in index
+     - plot(y1)
+     - plot(y2)
+     - legend(\["label1","label2"])
+   ~~~
+    x=np.arange(0.1,5,0.1)
+    x2=np.arange(0.01,2,0.01)
 
+    plt.plot(x,[math.log(i,1.5) for i in x],label="log 1.5")
+    plt.plot(x,[math.log(i,2) for i in x],label="log 2")
+    plt.plot(x,[math.log(i,3) for i in x],label="log 3")
+    plt.plot(x2,[i**i for i in x2],label="X^x")
+
+    plt.plot([1,1],[4,-6],"r--")
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+   ~~~
+   
+   <img width="400" src="/img6.png"/>
+   
+  ## my_plotter(ax, data1, data2, {'marker': 'x'})
+ 
+   - my_plotter(ax, data1, data2, param_dict)
+      -fig, ax = plt.subplots(1, 1)
+      -my_plotter(ax, data1, data2, {'marker': 'x','color':'g'})
+   
+   
+   ~~~~~
+   def my_plotter(ax, data1, data2, param_dict):
+    """
+    A helper function to make a graph
+
+    Parameters
+    ----------
+    ax : Axes
+        The axes to draw to
+
+    data1 : array
+       The x data
+
+    data2 : array
+       The y data
+
+    param_dict : dict
+       Dictionary of kwargs to pass to ax.plot
+
+    Returns
+    -------
+    out : list
+        list of artists added
+    """
+    out = ax.plot(data1, data2, **param_dict)
+    return out
+   ~~~~~
+   
+  - convinent to call:
+    
+   ~~~~~
+    # which you would then use as:
+
+    data1, data2, data3, data4 = np.random.randn(4, 100)
+    fig, ax = plt.subplots(1, 1)
+    my_plotter(ax, data1, data2, {'marker': 'x'})
+   
+   ~~~~~
+   <img width="200" src="/img7.png" / >
+    ~~~
+    fig, (ax1, ax2) = plt.subplots(1, 2)
+    my_plotter(ax1, data1, data2, {'marker': 'x'})
+    my_plotter(ax2, data3, data4, {'marker': 'o'})
+    
+    ~~~
+   <img width="200" src="/img8.png" / >
+   
+   
+   
+   
