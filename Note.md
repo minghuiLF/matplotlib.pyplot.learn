@@ -306,14 +306,17 @@ plt.show()
     my_plotter(ax, data1, data2, {'marker': 'x'})
    
    ~~~~~
-   <img width="200" src="/img7.png" / >
+   
+   <img width="200" src="/img7.png" />
+   
+   
     ~~~
     fig, (ax1, ax2) = plt.subplots(1, 2)
     my_plotter(ax1, data1, data2, {'marker': 'x'})
     my_plotter(ax2, data3, data4, {'marker': 'o'})
     
     ~~~
-   <img width="200" src="/img8.png" / >
+   <img width="200" src="/img8.png" />
    
    
    
