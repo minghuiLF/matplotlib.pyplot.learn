@@ -204,7 +204,7 @@ plt.show()
     
   ------------
   
- ## bar()
+ ## bar() barh()
   - make a bar plot (绘制直方(s))
   
   - __x,height,width,bottom,align__
