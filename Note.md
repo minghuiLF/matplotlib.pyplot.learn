@@ -238,7 +238,7 @@ plt.show()
   
  <img width="400px" src="/img5.png" />
  
- ## legend(\*args,*\*kwargs)
+ ## legend(\*args,*\*kwargs)  [detail_doc](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.legend.html?highlight=legend#matplotlib.pyplot.legend) 
    - 1st way labeled during ploting
      - plot(x,y,__label="11"__)
      - legend()
