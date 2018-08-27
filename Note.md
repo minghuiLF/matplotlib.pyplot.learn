@@ -8,6 +8,17 @@
 - import matplotlib.pyplot as plt
 
 ~~~
+
+常用笔记
+
+plt.tight_layout()   // 自动缩进边距
+
+plot          //线
+bar，barh     //柱状
+scatter       //散点
+
+
+
 -----------
 
 ## plot()
@@ -237,6 +248,73 @@ plt.show()
   ~~~~
   
  <img width="400px" src="/img5.png" />
+ 
+ ~~~~~
+    N=10
+    ind=np.arange(N)
+    width=0.35
+    #print(data_df.index)
+    #data_df.index
+
+    T_summer=data_df.Total_summer.apply(lambda x : int(x.replace(",",""))).values
+    T_winter=data_df.Total_winter.apply(lambda x : int(x.replace(",",""))).values
+    # print(T_summer)
+    # print(T_winter)
+    p1 = plt.barh(ind,T_summer,width)
+    p2 = plt.barh(ind,T_winter,width,left=T_summer)
+
+    plt.ylabel('Countrys')
+    plt.title(' Medals for Winter and Summer Games')
+    plt.xticks(np.arange(0,3000,600))
+    plt.yticks(ind,data_df.index)
+    plt.legend((p1[0], p2[0]), ('Summer', 'Winter'),loc=(-0.2,-0.2),ncol=2,fontsize='small',markerscale=(0.2,0.2))
+    plt.tight_layout()
+
+    plt.show()
+ 
+ ~~~~~
+ 
+ <img src="barh.png" />
+ 
+ 
+ ~~~~~~
+    country_ind=[" United States (USA) [P] [Q] [R] [Z]", " Australia (AUS) [AUS] [Z]", " Great Britain (GBR) [GBR] [Z]", " Japan (JPN)", " New Zealand (NZL) [NZL]"]
+    country=["United States", "Australia", "Great Britain", "Japan", "New Zealand"]
+
+    data_df=merge_df.loc[country_ind][["Gold_winter","Silver_winter","Bronze_winter"]]
+
+
+    Gold_winter=data_df.Gold_winter.apply(lambda x : int(x.replace(",",""))).values
+    Silver_winter=data_df.Silver_winter.apply(lambda x : int(x.replace(",",""))).values
+    Bronze_winter=data_df.Bronze_winter.apply(lambda x : int(x.replace(",",""))).values
+
+    # print(Gold_winter,Silver_winter,Bronze_winter)
+
+
+    N=5
+    ind=np.arange(1,(N+1))
+    ind=ind*1.5
+
+    bar_width=0.4
+    width=0.35
+
+    p1 = plt.bar(ind-bar_width,Gold_winter,width)
+    p2 = plt.bar(ind,Silver_winter,width)
+    p3 = plt.bar(ind+bar_width,Bronze_winter,width)
+
+    plt.title('Winter Games')
+    plt.yticks(np.arange(0,140,20))
+    plt.xticks(ind,country)
+    plt.legend((p1[0], p2[0], p3[0]), ('Gold', 'Silver','Bronze'),loc=(0.25,-0.2),ncol=3,fontsize='small',markerscale=(0.2,0.2))
+    plt.tight_layout()
+
+    plt.show()
+ 
+ 
+ ~~~~~~
+ 
+ <img src="bar.png" />
+ 
  
  ## legend(\*args,*\*kwargs)  [detail_doc](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.legend.html?highlight=legend#matplotlib.pyplot.legend) 
    - 1st way labeled during ploting
