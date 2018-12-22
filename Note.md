@@ -429,6 +429,6 @@ plt.show()
    
    ~~~~
    
-   <img width="200" src="/hist.png" />
+   <img width="500" src="/hist.png" />
    
    
