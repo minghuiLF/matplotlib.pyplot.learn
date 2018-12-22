@@ -345,8 +345,11 @@ plt.show()
    
   ## my_plotter(ax, data1, data2, {'marker': 'x'})
  
+ 
    - my_plotter(ax, data1, data2, param_dict)
+   
       -fig, ax = plt.subplots(1, 1)
+      
       -my_plotter(ax, data1, data2, {'marker': 'x','color':'g'})
    
    
@@ -401,7 +404,31 @@ plt.show()
    <img width="200" src="/img8.png" />
    
    
-  ##plt.hist() 
+  ## plt.hist() 
    
+   
+   - hist 就是对array中进行一个统计画图 array中的值在一个区间上的分布 
+   
+   - hist(array,区间集)
+   
+   ~~~~
+   
+   
+    plt.hist(means,range(0,101),color='blue',edgecolor='black', alpha=0.5,label='means')
+
+    plt.hist(meidans,range(0,101),color='green',edgecolor='black',alpha=0.5,label='medians')
+
+    plt.hist(data.values,range(0,101),color='yellow',edgecolor='black',alpha=0.5,label='data')
+
+    plt.axvline(x=data.values.mean(), color = 'r')
+
+    plt.legend()
+
+    plt.show()
+
+   
+   ~~~~
+   
+   <img width="200" src="/hist.png" />
    
    
